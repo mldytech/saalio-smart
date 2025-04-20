@@ -35,3 +35,6 @@
 build/
 .pio/
 .vscode/
+
+#secrets
+secrets.h

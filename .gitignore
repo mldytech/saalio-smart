@@ -34,4 +34,4 @@
 #platformio
 build/
 .pio/
-
+.vscode/

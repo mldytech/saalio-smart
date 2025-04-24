@@ -12,10 +12,10 @@
 #include "nvs_flash.h" //non volatile storage
 
 #include "config.h"
-#include "wifi.h"
-#include "mqtt.h"
-#include "influx.h"
-#include "homeassistant.h"
+#include <wifi.h>
+#include <mqtt.h>
+#include <influx.h>
+#include <homeassistant.h>
 
 
 void app_main(void)

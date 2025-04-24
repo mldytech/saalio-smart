@@ -28,13 +28,9 @@ The ultimate goal is to record all session data (duration, voltage, current, dc/
 <img src="images/board_modified.jpeg" alt="Board modified" width="355"/>
 
 ### The "Debug" Pin-Layout (WIP)
-| Pin | 0  | 1  | 2  | 3  | 4  |
-|-----|----|----|----|----|----|
-| Function | GND | ? | ? | ? | ? |
-
-| Pin | 5  | 6  | 7  | 8  | 9  |
-|-----|----|----|----|----|----|
-| Function | VCC (24V) | ? | ? | ? | ? |
+| Pin | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |
+|-----|----|----|----|----|----|----|----|----|----|----|
+| Function | GND | ? | ? | ? | ? | VCC (24V) | ? | ? | ? | ? |
 
 ### Realizations
 * Although the 'Kal Pin (next to the PIC)' supplies 3v and is therefore predestined to power the esp, the slightest change in voltage causes the device to reboot. Presumably, the 'Kal Pin' - as the name intends - is used to calibrate / control the internal voltages which is why we can't connect anything here.

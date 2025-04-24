@@ -34,6 +34,7 @@ The ultimate goal is to record all session data (duration, voltage, current, dc/
 
 ### Realizations
 * Although the 'Kal Pin (next to the PIC)' supplies 3v and is therefore predestined to power the esp, the slightest change in voltage causes the device to reboot. Presumably, the 'Kal Pin' - as the name intends - is used to calibrate / control the internal voltages which is why we can't connect anything here.
+* Although pin 0 and 5 seem to provide VCC, the esp is connected directly to the input of the power supply. The main reason for this is the (still) lack of understanding of the circuit, which is why it is less invasive and more sensible from a safety point of view.
 
 ## Used Hardware
 * [Wemos S2 Mini (ESP32)](https://www.wemos.cc/en/latest/s2/s2_mini.html)
@@ -43,3 +44,7 @@ The ultimate goal is to record all session data (duration, voltage, current, dc/
 
 ## Used Software
 * PlatformIO with esp-idf, make sure to select USB-CDC (not UART) in `pio run -t menuconfig`
+
+## Example graph of tracking usage in Grafana
+<img src="images/grafana_example_plot.png" alt="Grafana" width="600"/>
+

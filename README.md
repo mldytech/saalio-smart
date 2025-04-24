@@ -2,19 +2,21 @@
 
 **Disclaimer: Use at your own risk, no guarantee or liability.** 
 
-This project is an attempt to reverse engineer the saalio iontophoresis medical device. The procedure should be as minimally invasive as possible so that the functionality and safety of the device is not impaired in any way. \
+This project is an attempt to reverse engineer the saalio iontophoresis medical device. The procedure should be as minimally invasive as possible so that the functionality and especially safety of the device is not impaired in any way. \
 The general motivation behind this is to track the therapy sessions so that they are not forgotten. It should also help to better understand the progress and success of the therapy.  \
 \
-The ultimate goal is to record all session data (duration, voltage, current, dc/ppm) into some kind of logging system. Two main logging options are offered:
+The ultimate goal is to record all session data (duration, voltage, current, dc/ppm) into some kind of logging system. Two main logging options are currently offered:
 
 1) Communication via. MQTT for use with e.g. HomeAssistant
 2) Communication via. HTTP for use with InfluxDB and Grafana
 
-*As a first step, and due to the lack of available analysis tools (e. g. an logic analyzer), **only the active status is logged for the time being**. An ESP32 (more precisely wemos s2 mini) is connected to the power source of the device so that it always starts automatically with a therapy session. This already provides basic functionality to track when therapy has taken place and is (imo) a huge advantage compared to taking notes manually.*
+*As a first step, and due to the lack of available analysis tools (e. g. an logic analyzer), **only the active status is logged for the time being**. An ESP32 is connected to the power source of the device so that it always starts automatically with a therapy session. This already provides basic functionality to track when therapy has taken place and is (imo) a huge advantage compared to taking notes manually.*
 
 ## Device hardware overview
+[saalio-iontophoresis-device](https://www.saalmann-medical.de/iontophorese/saalio-iontophorese-geraet/)
 
-* [saalio-iontophoresis-device](https://www.saalmann-medical.de/iontophorese/saalio-iontophorese-geraet/)
+## Specs
+
 * VCC: 24V DC
 * Max. Voltage for therapy: 58V
 * Max. Current for therapy: 30mA
@@ -33,7 +35,7 @@ The ultimate goal is to record all session data (duration, voltage, current, dc/
 | Function | GND | ? | ? | ? | ? | VCC (24V) | ? | ? | ? | ? |
 
 ### Realizations
-* Although the 'Kal Pin (next to the PIC)' supplies 3v and is therefore predestined to power the esp, the slightest change in voltage causes the device to reboot. Presumably, the 'Kal Pin' - as the name intends - is used to calibrate / control the internal voltages which is why we can't connect anything here.
+* Although the 'Kal Pin' (next to the PIC) supplies 3v and is therefore predestined to power the esp, the slightest change in voltage causes the device to reboot. Presumably, the 'Kal Pin' - as the name intends - is used to calibrate / monitor the internal voltages which is why we can't connect anything here.
 * Although pin 0 and 5 seem to provide VCC, the esp is connected directly to the input of the power supply. The main reason for this is the (still) lack of understanding of the circuit, which is why it is less invasive and more sensible from a safety point of view.
 
 ## Used Hardware
